@@ -1,0 +1,32 @@
+<meta charset="utf-8" />
+<link type="text/css" rel="stylesheet" href="../../bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css" />
+<link type="text/css" rel="stylesheet" href="../../css/reset.css" />
+<link type="text/css" rel="stylesheet" href="../../css/popWinLogin.css" />
+<script src="../../bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="../../js/jsUtils.js"></script>
+<script type="text/javascript">
+	getImageCode();
+	$(document).keyup(function(event){  //监听回车键
+	    if(event.keyCode == 13){  
+	    	submitLogin();
+	    }
+	});
+</script>
+<section class="pop-win">
+    <section class="login-form">
+        <h3>登录</h3>
+        <div class="login-form__input">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="邮箱" id="account"/>
+        </div>
+        <div class="login-form__input">
+            <i class="fa fa-lock"></i>
+            <input type="password" placeholder="密码" id="password"/>
+        </div>
+        <div class="login-form__veri">
+            <input type="text" placeholder="验证码" maxlength="4" id="code"/>
+            <div class="login-form__img"><img id="codeImage" onclick="getImageCode()"/></div>
+        </div>
+        <button onclick="submitLogin()">登录</button>
+    </section>
+</section>

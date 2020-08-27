@@ -1,0 +1,129 @@
+.pop-win {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px; }
+
+.login-form {
+  width: 330px;
+  height: 400px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 20px 20px; }
+  .login-form > div {
+    width: 100%;
+    height: 37px;
+    color: green; }
+    .login-form > div > input {
+      height: 100%;
+      font-size: 16px;
+      padding: 0 10px;
+      color: green; }
+  .login-form__input {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .login-form__input > i {
+      display: flex;
+      flex-grow: 1;
+      font-size: 20px; }
+    .login-form__input > input {
+      display: flex;
+      flex-grow: 5;
+      border: 1px solid;
+      border-color: green;
+      border-radius: 5px; }
+    .login-form__input > select {
+      height: 100%;
+      display: flex;
+      flex: 1;
+      border-radius: 5px;
+      border: 1px solid;
+      border-color: green;
+      outline: none;
+      font-size: 13px;
+      color: green; }
+  .login-form__veri {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .login-form__veri > input[type="text"] {
+      width: 65%;
+      border: 1px solid;
+      border-color: green;
+      border-radius: 5px;
+      text-align: center; }
+    .login-form__veri > input[type="button"] {
+      width: 30%;
+      background-color: green;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s linear; }
+      .login-form__veri > input[type="button"]:hover {
+        background-color: green;
+        transition: all 0.2s linear; }
+    .login-form__img {
+      width: 30%;
+      height: 100%;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer; }
+      .login-form__img > img {
+        width: 100%;
+        height: 100%; }
+  .login-form h3 {
+    width: 100%;
+    font-size: 25px;
+    color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .login-form h3 > i {
+      width: 25px;
+      height: 25px;
+      font-size: 20px;
+      transform: rotateZ(45deg);
+      cursor: pointer;
+      transition: all 0.3s linear;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .login-form h3 > i:hover {
+        transform: rotateZ(405deg);
+        background-color: rgba(0, 128, 0, 0.5);
+        transition: all 0.3s linear; }
+  .login-form button {
+    width: 100%;
+    height: 10%;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    letter-spacing: 10px;
+    transition: all 0.2s linear;
+    cursor: pointer; }
+    .login-form button:hover {
+      background-color: #006c00;
+      transition: all 0.2s linear; }
+
+.login-form-register {
+  width: 100%;
+  height: 100%; }
+
+/*# sourceMappingURL=popWinLogin.css.map */

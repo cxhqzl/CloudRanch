@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html ng-app="farmerManagementSideApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>云农场</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon.png" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/swiper/dist/css/swiper.min.css" />
+    <link type="text/css" rel="stylesheet" href="../css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_manageSide.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagementSide.css" />
+</head>
+
+<body>
+    <div class="mg-pop-mod hide alert-win removepicture hide">
+        <div class="mg-pop-mod__body">
+            <h4>确定删除图片吗？</h4>
+            <div>
+                <button class="mg-pop-mod__body_yes" onclick="deleteSiteImage(this)">确定</button>
+                <button class="mg-pop-mod__body_cancel">取消</button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html" draggable="false">云农场智慧服务系统</a>
+            <div style="float:right;display:flex;align-items:center;">
+	            <div class="dropdown-menu-mod">
+                    <span class="dropdown-menu-mod__curr" id="firstSite"></span>
+                    <ul class="dropdown-menu-mod__oths hide" id="selectSites">
+                        <!-- <li><a href="#!/plotManagement">地块二</a></li>
+                        <li><a>地块二</a></li>
+                        <li><a>地块二</a></li>
+                        <li><a>地块二</a></li>
+                        <li><a>地块二</a></li>
+                        <li><a>地块二</a></li>
+                        <li><a>地块二</a></li>
+                        <li><a>地块二</a></li> -->
+                    </ul>
+                </div>
+	            <div class="navbar-right navbar-brand userhead-img header__img">
+	                <img alt="头像" id="user_image" draggable="false">
+	                <section class="userinfo-mod">
+	                    <div class="userinfo-mod__head">
+	                        <a href="../cloudranch/cp_personalSettings.html" title="个人中心" class="userinfo-mod__head_img"><img id="user_image_1"
+	                                draggable="false" /></a>
+	                        <div class="userinfo-mod__head_info">
+	                            <span class="userinfo-mod__head_name" id="my_userName"></span>
+	                            <span class="userinfo-mod__head_info" id="my_email"></span>
+	                        </div>
+	                    </div>
+	                    <div class="userinfo-mod__footer">
+	                        <span class="userinfo-mod__footer_signout" onclick="logout()">安全退出</span>
+	                    </div>
+	                </section>
+	            </div>
+            </div>
+        </div>
+    </nav>
+    <aside class="side">
+        <ul class="side-lists">
+            <li>
+                <a href="#!/essentialInformation" draggable="false" title="基本信息">
+                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                    <span>基本信息</span>
+                </a>
+            </li>
+            <li>
+                <a href="#!/plotManagement" draggable="false" title="植物管理">
+                    <span class="iconfont glyphicon">&#xe507;</span>
+                    <span>种植区域</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#!/plotManagementAnimal" draggable="false" title="动物管理">
+                    <span class="iconfont glyphicon">&#xe652;</span>
+                    <span>养殖区域</span>
+                </a>
+            </li> -->
+            <li class="slideDown-li">
+                <a draggable="false" title="植物溯源">
+                    <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+                    <span class="title">农作物溯源<span class="glyphicon glyphicon-chevron-down"></span></span>
+                </a>
+                <ul class="slideDown-items">
+                    <li>
+                        <a href="#!/informationentry-plant" draggable="false" title="作物类型">
+                            <span class="iconfont glyphicon">&#xe624;</span>
+                            <span>作物类型</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/informationentry-fertilize" draggable="false" title="生产管理">
+                            <span class="iconfont glyphicon">&#xe616;</span>
+                            <span>生产管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/informationentry-harvest" draggable="false" title="收获管理">
+                            <span class="iconfont glyphicon">&#xe60a;</span>
+                            <span>收获管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/informationentry-logistics" draggable="false" title="储运物流">
+                            <span class="iconfont glyphicon">&#xe689;</span>
+                            <span>储运物流</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 作物溯源 -->
+            </li>
+            <!-- <li class="slideDown-li">
+                <a draggable="false" title="肉制品溯源">
+                    <span class="iconfont glyphicon">&#xe637;</span>
+                    <span class="title">肉制品溯源<span class="glyphicon glyphicon-chevron-down"></span></span>
+                </a>
+                <ul class="slideDown-items">
+                    <li>
+                        <a href="#!/informationentry-register" draggable="false" title="入站登记">
+                            <span class="iconfont glyphicon">&#xe994;</span>
+                            <span>入站登记</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/informationentry-breed" draggable="false" title="养殖管理">
+                            <span class="iconfont glyphicon">&#xe625;</span>
+                            <span>养殖管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/informationentry-butcher" draggable="false" title="屠宰管理">
+                            <span class="iconfont glyphicon">&#xe609;</span>
+                            <span>屠宰管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/informationentry-animallogistics" draggable="false" title="储运物流">
+                            <span class="iconfont glyphicon">&#xe689;</span>
+                            <span>储运物流</span>
+                        </a>
+                    </li>
+                </ul>
+                牛羊溯源
+            </li> -->
+            <li>
+                <a href="#!/customerInformation" draggable="false" title="客户信息">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span>客户管理</span>
+                </a>
+                <!-- 1、客户基本信息（姓名，电话，性别） -->
+            </li>
+            <li>
+                <a href="#!/farmerManagementSetting" draggable="false" title="设置">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    <span>设置</span>
+                </a>
+                <!-- 1、农场名
+                2、农场管理咨询 -->
+            </li>
+        </ul>
+        <div class="menu-fold">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </div>
+    </aside>
+    <section class="manage-area">
+        <div ng-view></div>
+    </section>
+</body>
+
+<script src="../bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="../bower_components/angular/angular.min.js" type="text/javascript"></script>
+<script src="../bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
+<script src="../bower_components/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../bower_components/swiper/dist/js/swiper.min.js" type="text/javascript"></script>
+<script src="../js/cp_farmerManagementSide.js" type="text/javascript"></script>
+<script src="../js/cp_personalSettings.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script src="../js/cp_farmManagementSetting.js" type="text/javascript"></script>
+<script src="../js/mg-mod.js" type="text/javascript"></script>
+<script type="text/javascript">
+showSelectSites();
+function showSelectSites(){
+	sessionStorage.setItem("refreshFlag",1);
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"famerGetSites",
+		data : {
+			account : sessionStorage.getItem("account")
+		},
+		success : function(result) {
+			var sites = result.sites;
+			var str = "";
+			/* str += sites[0].siteName + "<span class='glyphicon glyphicon-chevron-down' aria-hidden='true'></span>";
+			document.getElementById("firstSite").innerHTML = str;
+			str = ""; */
+			for(var i=0;i<sites.length;i++){
+				if(sites[i].siteId == sessionStorage.getItem("siteId")){
+					document.getElementById("firstSite").innerHTML = sites[i].siteName + "<span class='glyphicon glyphicon-chevron-down' aria-hidden='true'></span>";
+				}
+				str += "<li><a onclick='showTheSite(\""+sites[i].siteId+"\")'>"+sites[i].siteName+"</a></li>";
+			}
+			document.getElementById("selectSites").innerHTML = str;
+		},
+		error : function(e){
+			
+		}
+	});
+}
+</script>
+</html>

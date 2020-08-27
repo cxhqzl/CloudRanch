@@ -1,0 +1,33 @@
+.manage-area-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.switch-plot {
+  position: absolute;
+  right: 0;
+  color: #000;
+  margin: 0; }
+
+.manage-area-main .mg-panel p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 !important;
+  position: relative; }
+  .manage-area-main .mg-panel p > span:last-child {
+    display: inline-block;
+    text-align: right;
+    padding-right: 0; }
+.manage-area-main .mg-panel input {
+  text-align: right;
+  padding-right: 0 !important;
+  cursor: pointer; }
+.manage-area-main .mg-panel .square-meter {
+  position: absolute;
+  height: 15px;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0; }
+
+/*# sourceMappingURL=cp_plotManagement.css.map */

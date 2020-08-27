@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon.png" />
+    <link type="text/css" rel="stylesheet" href="../css/management.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_singlePlotManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagementSetting.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmManagement-sub.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <ul class="crumbs">
+            <li><a href="#!/farmManagement" draggable="false">农场管理</a></li>
+            <li class="crumbs__curpage" id="locationSite"></li>
+        </ul>
+        <a class="mg-button-mod" onclick="showDetail()" target="_blank">农场卫星图</a>
+    </header>
+    <section class="manage-area-main row">
+        <div class="mg-panel setting col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>农场信息</h3>
+            <div class="block-card">
+                <div class="wrapper c-3">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe641;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">农场名称</span>
+                        <span class="value" id="siteName"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-3">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe624;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">种植作物</span>
+                        <span class="value" id="crops"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-3">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe637;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">养殖牲畜</span>
+                        <span class="value" id="crops_ani"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-4">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe628;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">传感器数</span>
+                        <span class="value" id="sensorNum"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-4">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe66e;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">摄像头数</span>
+                        <span class="value" id="videoNum"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-4">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe882;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">地块数</span>
+                        <span class="value" id="placeNum"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-4">
+                    <div class="icon">
+                        <span class="iconfont glyphicon">&#xe652;</span>
+                    </div>
+                    <div class="content">
+                        <span class="key">圈舍数</span>
+                        <span class="value" id="placeNumAni"></span>
+                    </div>
+                </div>
+                <div class="wrapper c-1">
+                    <div class="content">
+                        <span class="key">农场简介</span>
+                        <span id="remarks"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mg-title">区块信息</h3>
+        <!-- <p style="text-align:center;">暂无地块</p> -->
+        <div id="places">
+        	<!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 plot" >
+	            <a class="mg-panel" href="#!/farmManagement-plot" draggable="false">
+	                <h3>地块一</h3>
+	                <p class="row">
+	                    <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">地块名称</span>
+	                    <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="地块一" readonly />
+	                </p>
+	                <p class="row">
+	                    <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">地块面积</span>
+	                    <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child square-meter-input" type="text"
+	                        value="113m²" readonly />
+	                </p>
+	                <p class="row">
+	                    <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">种植作物</span>
+	                    <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="葡萄" readonly />
+	                </p>
+	                <p class="row">
+	                    <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">负责人</span>
+	                    <span class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child">cds</span>
+	                </p>
+	            </a>
+	        </div> -->
+        </div>
+    </section>
+</body>
+<script src="../bower_components/distpicker/dist/distpicker.min.js" type="text/javascript"></script>
+<script src="../js/mg-mod.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script type="text/javascript">
+showSiteDetail();
+getAdminCountBySite();
+//数量显示
+function getAdminCountBySite(){
+	var href = window.location.href;
+	var siteId  = href.split("?siteId=")[1];
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"queryCountBySite",
+		data : {
+			siteId : siteId
+		},
+		success : function(result) {
+			var counts = result.counts;
+			document.getElementById("placeNum").innerHTML = counts.placeCount;
+			document.getElementById("placeNumAni").innerHTML = counts.placeCountAni;
+			document.getElementById("videoNum").innerHTML = counts.vidoCount;
+			document.getElementById("sensorNum").innerHTML = counts.sensorCount;
+		},
+		error : function(e){
+			
+		}
+	});
+}
+//进入查看站点详情
+function showDetail(){
+	var href = window.location.href;
+	var siteId  = href.split("?siteId=")[1];
+	skipPage('cloudranch/cp_adminShowDetail.html?siteId='+siteId);
+}
+</script>
+</html>

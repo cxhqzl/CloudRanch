@@ -1,0 +1,38 @@
+.manage-area-main {
+  height: auto;
+  margin-top: 70px;
+  padding: 0 20px; }
+  .manage-area-main .resources-mod > .row:not(:last-child) {
+    border-bottom: 1px dashed #ddd;
+    margin-bottom: 20px; }
+    .manage-area-main .resources-mod > .row:not(:last-child) > div {
+      margin-bottom: 20px; }
+  .manage-area-main .resources-mod > .row > div {
+    padding: 20px; }
+    .manage-area-main .resources-mod > .row > div > span {
+      color: #333;
+      line-height: 17px;
+      font-size: 14px;
+      font-weight: 700; }
+    .manage-area-main .resources-mod > .row > div > p {
+      margin: 0;
+      font-size: 12px;
+      color: #888;
+      line-height: 42px;
+      margin-top: 15px;
+      align-items: flex-end; }
+      .manage-area-main .resources-mod > .row > div > p > span {
+        font-size: 32px;
+        color: #000;
+        line-height: 25px;
+        margin-right: 10px; }
+      .manage-area-main .resources-mod > .row > div > p > i {
+        line-height: 13px; }
+  .manage-area-main .resources-mod > .row > div:not(:last-child) {
+    border-right: 1px solid #ddd; }
+
+.login-info-mod p {
+  display: flex;
+  justify-content: space-between; }
+
+/*# sourceMappingURL=cp_essentialInformation.css.map */

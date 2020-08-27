@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon.png" />
+    <link type="text/css" rel="stylesheet" href="../css/management.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_userManagement.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <h2>用户管理</h2>
+        <a class="mg-button-mod" data-toggle="modal" data-target="#addMerchantModal">添加用户</a>
+    </header>
+    <!-- <span class="add-merchant" data-toggle="modal" data-target="#addMerchantModal">添加站点</span> -->
+    <section class="manage-area-main">
+        <div class="mg-panel col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="choose-role">
+            	<li class="selected" onclick="chooseRole('all')">全部<span class="glyphicon glyphicon-ok"></span></li>
+                <li onclick="chooseRole('2')">普通用户<span class="glyphicon glyphicon-ok"></span></li>
+                <li onclick="chooseRole('1')">农场主<span class="glyphicon glyphicon-ok"></span></li>
+                <li onclick="chooseRole('0')">超级管理员<span class="glyphicon glyphicon-ok"></span></li>
+            </ul>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td>编号</td>
+                        <td>商家</td>
+                        <td>邮箱</td>
+                        <td>省</td>
+                        <td>市</td>
+                        <td>县、区</td>
+                        <td>详细地址</td>
+                        <td>联系方式</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody id="accounts">
+                   <!--  <tr>
+                        <td>1</td>
+                        <td>cds</td>
+                        <td>869471630@qq.com</td>
+                        <td>安徽省</td>
+                        <td>合肥市</td>
+                        <td>蜀山区</td>
+                        <td>测试测试测测试测试测测试测试测测试测试测测试测试测测测试测测试测试测测</td>
+                        <td>13902873278</td>
+                        <td class="table-operation">
+                            <i class="fa fa-pencil-alt" title="编辑" data-toggle="modal" data-target=".editRole"></i>
+                            <span class="glyphicon glyphicon-trash" title="删除" data-toggle="modal"
+                                data-target=".confirmModal"></span>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <nav aria-label="Page navigation" class="pagination-cp">
+        <ul class="pagination" id="navPage">
+            <!-- <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li> -->
+        </ul>
+    </nav>
+    <!-- 确认删除 -->
+    <div class="modal fade confirmModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    你要删除此条记录吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 编辑用户权限 -->
+    <div class="modal fade editRole" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">账号类型</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="choose-role">
+                        <li title="2" data-id="">普通用户<span class="glyphicon glyphicon-ok"></span></li>
+                        <li title="1" data-id="">农场主<span class="glyphicon glyphicon-ok"></span></li>
+                        <li title="0" data-id="">超级管理员<span class="glyphicon glyphicon-ok"></span></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="submitModifiRole()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加用户modal窗口 -->
+    <div class="modal fade" id="addMerchantModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="edit-form">
+                        <div class="edit-form__body" data-toggle="distpicker">
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">账号</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <input type="text" placeholder="自定义账号" id="re_account"/>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">邮箱</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <input type="text" placeholder="支持邮箱绑定" id="re_email"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">密码</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <input type="text" placeholder="请输入密码" id="re_password"/>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">用户名</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <input type="text" placeholder="请输入用户名" id="re_userName"/>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">电话</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <input type="text" placeholder="请输入电话" id="re_phone"/>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">账号权限</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <select id="re_role">
+                                    	<option id="2">用户</option>
+                                    	<option id="1">农场主</option>
+                                    	<option id="0">超级管理员</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">省</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <select data-province="---- 选择省 ----" id="re_province"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">市</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <select data-city="---- 选择市 ----" id="re_city"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">县、区</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <select data-district="---- 选择区 ----" id="re_county"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">详细地址</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <input type="text" placeholder="方便精确定位" maxlength="25" id="re_location"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="adminAddAccount()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../bower_components/distpicker/dist/distpicker.min.js" type="text/javascript"></script>
+<script src="../js/cp_userManagement.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script type="text/javascript">
+	showAccounts();
+	//按角色选择
+	function chooseRole(type){
+		if(type == 'all'){
+			refreshPage();
+			return;
+		}
+		$.ajax({
+			type : "POST",//方法类型
+			async : true,
+			dataType : "json",//预期服务器返回的数据类型
+			url : getURL()+"queryAccounts",
+			data : {
+				pageNumber : 1,
+				limit : 10,
+				role : type
+			},
+			success : function(result) {
+				var accounts = result.accounts;
+				sessionStorage.setItem("size",result.size);
+				sessionStorage.setItem("index",result.index);
+				navPage();
+				var str = "";
+				for(var i=0;i<accounts.length;i++){
+					str += "<tr>";
+					str += "<td>"+(i+1)+"</td>";
+					str += "<td>"+accounts[i].account+"</td>";
+					str += "<td>"+accounts[i].userName+"</td>";
+					str += "<td>"+accounts[i].email+"</td>";
+					str += "<td>"+accounts[i].province+"</td>";
+					str += "<td>"+accounts[i].city+"</td>";
+					str += "<td>"+accounts[i].county+"</td>";
+					str += "<td>"+accounts[i].location+"</td>";
+					str += `
+				     <td class="table-operation">
+                        <i onclick="getRole('${accounts[i].role}','${accounts[i].account}')" class="fa fa-pencil-alt" title="编辑" data-toggle="modal" data-target=".editRole"></i>
+                        <span onclick="delAccount('${accounts[i].account}')" class="glyphicon glyphicon-trash" title="删除"></span>
+                    </td>
+				     `;
+					str += "</tr>";
+				}
+				document.getElementById("accounts").innerHTML = str;
+			},
+			error : function(e){
+				alert(12);
+			}
+	});
+	}
+	//修改账号权限
+	function submitModifiRole(){
+		var role_ = sessionStorage.getItem('role_');
+		var role_1 = sessionStorage.getItem('role_1');
+		if(role_ == role_1){
+			alert("未作修改！");
+			return;
+		}
+		$.ajax({
+			type : "POST",//方法类型
+			async : true,
+			dataType : "json",//预期服务器返回的数据类型
+			url : getURL()+"modifiAccountRole",
+			data : {
+				role : role_1,
+				account : sessionStorage.getItem('account_')
+			},
+			success : function(result) {
+				if(result){
+					alert("修改成功");
+				}else{
+					alert("修改失败");
+				}
+				refreshPage();
+			},
+			error : function(e){
+				alert(12);
+			}
+		});
+	}
+	//管理员添加账号
+	function adminAddAccount(){
+		var account = $("#re_account").val();
+		var email = $("#re_email").val();
+		var password = $("#re_password").val();
+		var userName = $("#re_userName").val();
+		var phone = $("#re_phone").val();
+		var role = $("#re_role").val();
+		var province = $("#re_province").val();
+		var city = $("#re_city").val();
+		var county = $("#re_county").val();
+		var location = $("#re_location").val();
+		$.ajax({
+			type : "POST",//方法类型
+			async : true,
+			dataType : "json",//预期服务器返回的数据类型
+			url : getURL()+"adminAddAccount",
+			data : {
+				account : account,
+				password : password,
+				userName : userName,
+				image : "",
+				sex : "男",
+				age : 30,
+				province : province,
+				city : city,
+				county : county,
+				location : location,
+				phone : phone
+			},
+			success : function(result) {
+				if(result.type == 2){
+					alert("账号已存在!");
+					return;
+				}else if(result.type == 0){
+					alert("添加成功");
+				}else{
+					alert("添加失败");
+				}
+				refreshPage();
+			},
+			error : function(e){
+				alert(12);
+			}
+		});
+	}
+</script>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="../css/cdsmain.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_singlePlotManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmManagement-plot.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <ul class="crumbs">
+            <li><a href="#!/farmManagement" draggable="false">地块管理</a></li>
+            <li><a href="javascript:void(0);" onclick="toBack()" draggable="false" id="locationSite"></a></li>
+            <li class="crumbs__curpage" id="locationPlace"></li>
+        </ul>
+        <div class="dropdown-menu-mod" id="choosePlace">
+            <!-- <span class="dropdown-menu-mod__curr">地块一<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+            <ul class="dropdown-menu-mod__oths hide">
+                <li><a href="#!/plotManagement">地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+            </ul> -->
+        </div>
+    </header>
+    <section class="manage-area-main row">
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="mg-panel plot-video">
+                <div class="plot-video__title">
+                    <h3>地块视频</h3>
+                    <div class="dropdown-menu-mod">
+                        <span class="dropdown-menu-mod__curr" id="fistName"><span class="glyphicon glyphicon-chevron-down"
+                                aria-hidden="true"></span></span>
+                        <ul class="dropdown-menu-mod__oths hide" id="videos">
+                            <!-- <li><a>摄像头1</a></li>
+                            <li><a>摄像头2</a></li>
+                            <li><a>摄像头3</a></li>
+                            <li><a>摄像头4</a></li>
+                            <li><a>摄像头5</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="plot-video__body">
+                    <div class="plot-video__body_img" id="videoCon">
+                        <!-- <img src="../../img/bannerPic-1.jpg" /> -->
+                        <video id="monitorVedio" autoplay="autoplay">
+							<source id="nowVideo" type="application/x-mpegURL" />
+						</video>
+                    </div>
+                </div>
+            </div>
+            <div class="mg-panel c-panorama-management">
+                <h3>全景图片</h3>
+                <div class="add-panorama">
+                    <span class="glyphicon glyphicon-picture" data-toggle="modal"
+                        data-target="#addPanorama">添加全景图</span>
+                </div>
+                <div class="row panoramas" id="overalls">
+                    <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="inner">
+                            <a href="">
+                                <img draggable="false" title="农翠园" src="../img/bannerPic-2.jpg" />
+                            </a>
+                            <div class="name">
+                                <span>农翠园</span>
+                                <span class="glyphicon glyphicon-trash hide" title="删除全景图" data-toggle="modal"
+                                    data-target=".confirmModal"></span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- <div class="mg-panel recent-data">
+                <h3>空气温湿度近七日数据</h3>
+                <div id="airRecentData" style="height:250px;"></div>
+                图表事件响应错位
+            </div>
+            <div class="mg-panel recent-data">
+                <h3>土壤温湿度近七日数据</h3>
+                <div id="airRecentData1" style="height:250px;"></div>
+                图表事件响应错位
+            </div> -->
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="mg-panel sensor-data">
+                <h3>传感器实时数据</h3>
+                <div class="sa-buttons">
+                    <span class="mg-button-mod save hide" onclick="addSensor()">确定</span>
+                    <span class="mg-button-mod add">添加传感器</span>
+                </div>
+                <div class="sensor" id="appendSensor">
+                    <div class="add hide">
+                        <select id="sensorType">
+                            <!-- <option>传感器类别</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option> -->
+                        </select>
+                        <input type="text" placeholder="传感器名称" id="sensorName"/>
+                    </div>
+                   <!-- <div class="sensor-item">
+                        <div class="sensor-item__namewrapper">
+                            <span class="sensor-item__name" title="测试测试（空气温湿度传感器）">测试测试（空气温湿度传感器）</span>
+                            <span class="glyphicon glyphicon-trash hide" title="删除传感器"></span>
+                        </div>
+                        <div class="sensor-item__data">24℃/80%</div>
+                    </div>
+                    <div class="sensor-item">
+                        <div class="sensor-item__namewrapper">
+                            <span class="sensor-item__name" title="测试测试（土壤温湿度传感器）">测试测试（土壤温湿度传感器）</span>
+                            <span class="glyphicon glyphicon-trash hide" title="删除传感器"></span>
+                        </div>
+                        <div class="sensor-item__data">10℃/50%</div>
+                    </div> -->
+			</div>
+           </div>
+            <div class="mg-panel plot-information">
+                <h3>地块信息</h3>
+                <p><span>作物种类</span>葡萄、苹果</p>
+                <p><span>地块面积</span>113m²</p>
+                <p><span>客户数</span>12</p>
+                <p><span>开启传感器数</span>10</p>
+                <p><span>关闭传感器数</span>2</p>
+            </div>
+        </div>
+    </section>
+        <!-- 确认删除弹出框 -->
+    <!-- <div class="modal fade confirmModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    	你要删除此条记录吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- 添加全景图 -->
+    <div class="modal fade" id="addPanorama" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加全景图</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                           	展示图片
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <form id="overallImage" enctype="multipart/form-data" method="POST" action="return false">
+                                <input type="file" id="pic" name="file"/>
+                                <input type="text" readonly placeholder="点击选择图片"/>
+                                <label for="pic" title="选择展示图片"></label>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                           	 全景图链接
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" id="overallURL"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="submitAddOverall()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="../bower_components/echarts/dist/echarts.min.js" type="text/javascript"></script>
+<script src="../js/mg-mod.js" type="text/javascript"></script>
+<script src="../js/cp_sensorCharts.js" type="text/javascript"></script>
+<script src="../js/ezuikit.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script src="../js/cdsmain.js" type="text/javascript"></script>
+<script src="../js/cp_farmManagement-plot.js" type="text/javascript"></script>
+<script type="text/javascript">
+navShow();
+choosePlaceShow();
+showVideo();
+showSensors();
+showSensorType();
+showOveralls();
+//地块切换
+function choosePlaceShow(){
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"queryPlaces",
+		data : {
+			siteId : sessionStorage.getItem("siteId"),
+			placeId : -1,
+			limit : -1,
+			pageNumber : -1,
+			type : ""
+		},
+		success : function(result) {
+			var places = result.places;
+			var str = "";
+			var str1 = "";
+			var href = window.location.href;
+			var placeId  = href.split("?placeId=")[1];
+			for(var i=0;i<places.length;i++){
+				if(places[i].placeId == placeId){
+					str1 = `<span class="dropdown-menu-mod__curr">${places[i].placeName}<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>`;
+				}
+				str += `<li><a onclick="choosePlace(${places[i].placeId})">${places[i].placeName}</a></li>`;
+			}
+			str = str1 + `<ul class="dropdown-menu-mod__oths hide">` + str + "</ul>";
+			document.getElementById("choosePlace").innerHTML = str;
+		},
+		error : function(e){
+			
+		}
+	});
+}
+//切换地块
+function choosePlace(placeId){
+	var href = window.location.href;
+	href = href.substring(0,href.indexOf("=")+1);
+	window.location.href = href+placeId;
+}
+//导航条
+function navShow(){
+	var href = window.location.href;
+	var placeId  = href.split("?placeId=")[1];
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"queryPlaces",
+		data : {
+			placeId : placeId,
+			siteId : -1,
+			limit : -1,
+			pageNumber : -1,
+			type : ""
+		},
+		success : function(result) {
+			var place = result.places[0];
+			document.getElementById("locationSite").innerHTML = sessionStorage.getItem("siteName");
+			document.getElementById("locationPlace").innerHTML = place.placeName;
+		},
+		error : function(e){
+			
+		}
+	});
+}
+function submitAddOverall(){
+	var overallURL = $("#overallURL").val();
+	var fileInput = $('#pic').get(0).files[0];
+	var image = "";
+	if(!fileInput){
+		alert("请选择全景图展示图片");
+		return;
+	}
+	var data = new FormData($("#overallImage")[0]);
+	$.ajax({ 
+		type : 'POST',  
+		async : false,
+	     url : getURL()+"uploadFile?account="+sessionStorage.getItem("account")+"&path=overallImage",
+	     cache : false,   //上传文件不需缓存
+	     processData : false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+	     contentType : false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+	     data : data,  
+	     dataType : 'json', 
+	     success : function(result){
+			image = result.fileName;
+	     },
+	     error : function(){ 
+	      	
+	     }
+	});
+	var href = window.location.href;
+	var	placeId = href.split("placeId=")[1];
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"addOverall",
+		data : {
+			image : image,
+			overallURL : overallURL,
+			placeId : placeId
+		},
+		success : function(result) {
+			if(result){
+				alert("添加成功");
+			}else{
+				alert("添加失败");
+			}
+			refreshPage();
+		},
+		error : function(e){
+			alert("获取失败，请重试！");
+		}
+	});
+}
+//全景图查询
+function showOveralls(){
+	var href = window.location.href;
+	var	placeId = href.split("placeId=")[1];
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"queryOveralls",
+		data : {
+			placeId : placeId,
+			id : -1
+		},
+		success : function(result) {
+			var overalls = result.overalls;
+			var places  = result.places;
+			var str = "";
+			if(overalls.length == 0){
+				
+			}else{
+				for(var i=0;i<overalls.length;i++){
+					var imgURL = getImgURL() + "overallImage/" + overalls[i].image;
+					str += `
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	                        <div class="inner">
+	                            <a href="${overalls[i].overallURL}" target="_blank">
+	                                <img draggable="false" title="农翠园" src="${imgURL}" />
+	                            </a>
+	                            <div class="name">
+	                                <span>${places[i].placeName}-${(i+1)}</span>
+	                                <span class="glyphicon glyphicon-trash hide" title="删除全景图" onclick="delOverall(${overalls[i].id})"></span>
+	                            </div>
+	                        </div>
+	                    </div>
+					`;
+				}
+			}
+			document.getElementById("overalls").innerHTML = str;
+			$('.c-panorama-management .panoramas .inner ').hover(function () {
+			    $(this).find('.glyphicon-trash').removeClass('hide');
+			}, function () {
+			    $(this).find('.glyphicon-trash').addClass('hide');
+			});
+		},
+		error : function(e){
+			alert("获取失败，请重试！");
+		}
+	});
+}
+//删除
+function delOverall(id){
+	var res = confirm("确认删除?");
+	if(!res){
+		return;
+	}
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"delOverall",
+		data : {
+			id : id
+		},
+		success : function(result) {
+			if(result){
+				alert("删除成功");
+			}else{
+				alert("删除失败");
+			}
+			refreshPage();
+		},
+		error : function(e){
+			alert("获取失败，请重试！");
+		}
+	});
+}
+//返回
+function toBack(){
+	var siteId = sessionStorage.getItem("siteId");
+	skipPage('cloudranch/cp_manageSide.html#!/farmManagement-sub?siteId='+siteId);
+}
+</script>
+</html>

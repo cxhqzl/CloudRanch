@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAmB;EACf,YAAY,EAAC,IAAI",
+"sources": ["../scss/cp_farmerManagementSide.scss"],
+"names": [],
+"file": "cp_farmerManagementSide.css"
+}

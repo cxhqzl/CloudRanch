@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>云农场</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon.png" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="../css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_personalSettings.css" />
+</head>
+
+<body>
+    <header class="header">
+        <ul class="header__nav">
+            <li>
+                <a href="../index.html">云农场智慧服务系统</a>
+            </li>
+        </ul>
+        <div class="header__img">
+            <img id="user_image" draggable="false" />
+            <section class="userinfo-mod">
+                <div class="userinfo-mod__head">
+                    <div class="userinfo-mod__head_img"><img id="user_image_1" draggable="false" /></div>
+                    <div class="userinfo-mod__head_info">
+                        <span class="userinfo-mod__head_name" id="my_userName"></span>
+                        <span class="userinfo-mod__head_info" id="my_email"></span>
+                    </div>
+                </div>
+                <div class="userinfo-mod__footer">
+                    <span class="userinfo-mod__footer_signout" onclick="logout()">安全退出</span>
+                </div>
+            </section>
+        </div>
+    </header>
+    <section class="user-info">
+        <div class="user-info__left">
+            <div class="user-info__left_img">
+                <img id="person_image" draggable="false" />
+            </div>
+            <div class="user-info__left_info">
+                <span class="user-info__left_info_name" id="person_userName"></span>
+                <span class="user-info__left_info_others" id="person_my_infos"></span>
+            </div>
+        </div>
+        <div class="user-info__right">
+            <!-- <div class="user-info__right_addfarmer">成为农场主</div> -->
+            <a class="user-info__right_addfarmer" draggable="false" target="_blank" onclick="toPageForRole()">后台管理</a>
+        </div>
+    </section>
+    <section class="page-settings">
+        <ul class="page-settings__nav">
+            <li data-name="myinfo" data-num="0">我的资料</li>
+            <li data-name="account-security" data-num="1">账号安全</li>
+            <span class="bottom-bar"></span>
+        </ul>
+        <div class="page-settings__body">
+            <div class="page-settings__myinfo" data-toggle="distpicker">
+                <div>
+                    <span>头像</span>
+                    <div class="page-settings__myinfo_img">
+                        <img id="person_image_1" draggable="false" />
+                        <div class="hide">
+                            <input type="file" id="img" />
+                            <label for="img">更换头像</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span>昵称</span>
+                    <div><input type="text" readonly id="userName"/></div>
+                </div>
+                <div>
+                    <span>性别</span>
+                    <div class="page-settings__myinfo_gender hide">
+                        <span><input type="radio" value="male" name="gender" />男</span>
+                        <span><input type="radio" value="female" name="gender" />女</span>
+                        <span><input type="radio" value="secrecy" name="gender" checked />保密</span>
+                    </div>
+                    <div id="showSex"></div>
+                </div>
+                <div>
+                    <span>省份</span>
+                    <div>
+                        <span id="test_1"></span>
+                        <select class="hide" data-province="" id="province"></select>
+                    </div>
+                </div>
+                <div>
+                    <span>城市</span>
+                    <div>
+                        <span id="showCity"></span>
+                        <select class="hide" data-city="" id="city"></select>
+                    </div>
+                </div>
+                <div>
+                    <span>区/县</span>
+                    <div>
+                        <span id="showCounty"></span>
+                        <select class="hide" data-district="" id="county"></select>
+                    </div>
+                </div>
+                <div>
+                    <span>详细地址</span>
+                    <div><input type="text" id="location" readonly /></div>
+                </div>
+                <div class="page-settings__buttons hide">
+                    <button class="page-settings__buttons_cancel">取消</button>
+                    <button class="page-settings__buttons_yes">保存</button>
+                </div>
+                <div class="page-settings__edit">
+                    <span>编辑“我的资料”</span>
+                </div>
+
+            </div>
+            <div class="page-settings__account-security hide">
+                <div>
+                    <span>邮箱</span>
+                    <div><input type="text" value="869471630@qq.com" readonly /></div>
+                </div>
+                <div>
+                    <span>电话</span>
+                    <div><input type="text" value="18098751206" readonly /></div>
+                </div>
+                <div>
+                    <span>密码</span>
+                    <div class="page-settings__account-security_psd">
+                        <input type="password" value="dsadsadsdasdasd" readonly />
+                        <span><img src="../img/闭眼.png" /></span>
+                    </div>
+                </div>
+                <div class="page-settings__buttons hide">
+                    <button class="page-settings__buttons_cancel">取消</button>
+                    <button class="page-settings__buttons_yes">保存</button>
+                </div>
+                <div class="page-settings__edit">
+                    <span>编辑“账号安全”</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">&copy;2018 智慧农业技术与装备安徽省重点实验室</footer>
+</body>
+<script src="../bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="../bower_components/distpicker/dist/distpicker.js" type="text/javascript"></script>
+<script src="../bower_components/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../js/cp_personalSettings.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script type="text/javascript">
+setPersonData();
+</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagementSetting.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <h2>设置</h2>
+    </header>
+    <section class="manage-area-main">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="mg-panel setting">
+                <h3>农场设置</h3>
+                <span class="glyphicon glyphicon-pencil">编辑</span>
+                <span class="glyphicon glyphicon-saved hide" onclick="submitModifiSite()">保存</span>
+                <p class="row">
+                    <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 row-child">农场名称</span>
+                    <input class="col-xs-10 col-sm-10 col-md-10 col-lg-10 row-child" type="text" id="mySiteName" readonly />
+                </p>
+                <p class="row">
+                    <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 row-child">种植作物</span>
+                    <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10 row-child" id="mySiteCrops"></span>
+                </p>
+                <p class="row">
+                    <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 row-child">农场面积</span>
+                    <input class="col-xs-10 col-sm-10 col-md-10 col-lg-10 row-child" type="text" id="mySiteSquare"
+                        readonly />
+                </p>
+                <p class="row">
+                    <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 row-child">农场简介</span>
+                    <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10 row-child farmer-introduction" id="mySiteRemark">
+                    
+                    </span>
+                    <textarea placeholder="最多输入300字！" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 hide row-child" id="mySiteRemark1"></textarea>
+                </p>
+            </div>
+            <div class="mg-panel setting">
+                <h3>农场负责人</h3>
+                <span class="glyphicon glyphicon-pencil">编辑</span>
+                <span class="glyphicon glyphicon-saved hide">保存</span>
+                <p class="row">
+                    <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 row-child">负责人</span>
+                    <input class="col-xs-10 col-sm-10 col-md-10 col-lg-10 row-child" type="text" value="cds" readonly />
+                </p>
+                <p class="row">
+                    <span class="col-xs-2 col-sm-2 col-md-2 col-lg-2 row-child">联系方式</span>
+                    <input class="col-xs-10 col-sm-10 col-md-10 col-lg-10 row-child" type="text" value="15678962453" readonly />
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        	<div class="mg-panel farm-picture">
+                <h3>农场图片</h3>
+                <!-- <span class="farm-picture__tip">最多添加10张图片！</span> -->
+                <form class="addPictureIcon" id="Image_1" enctype="multipart/form-data" method="POST" action="return false">
+                    <input type="file" id="addPicture" name="file"/>
+                    <label for="addPicture">
+                        <span class="glyphicon glyphicon-picture">添加图片</span>
+                    </label>
+                </form>
+                <div id="siteImageShow">
+	               <!--  <form class="nopicture" id="noExisImage" id="Image_2" enctype="multipart/form-data" method="POST" action="return false">
+	                    <input type="file" id="addPicture1" name="file"/>
+	                    <label for="addPicture1">
+	                       	 您还没有农场图片，点击添加！
+	                    </label>
+	                </form>
+	               <div class="swiper-container hide" id="exisImage">
+	                    <div class="swiper-wrapper" id="siteImages">
+	                        <div class="swiper-slide">
+	                            <img src="../img/bannerPic-1.jpg" alt="农场1" title="双击删除图片"/>
+	                        </div>
+	                        <div class="swiper-slide">
+	                            <img src="../img/bannerPic-2.jpg" alt="农场2" title="双击删除图片"/>
+	                        </div>
+	                    </div>
+	                    <div class="swiper-button-prev"></div>
+	                    <div class="swiper-button-next"></div>
+	                </div> -->
+                </div>
+            </div>
+        	
+        </div>
+    </section>
+</body>
+<script src="../js/mg-mod.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script type="text/javascript">
+	showSiteInfo();
+	showSiteImage();
+	$("#addPicture").change(function () { 
+		if($(this).val() != ""){ 
+			uploadSiteImage(1);
+		} 
+	});
+	$("#addPicture1").change(function () { 
+		if($(this).val() != ""){ 
+			uploadSiteImage(2);
+		} 
+	});
+</script>
+
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_singlePlotManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_plotManagement-sub.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <ul class="crumbs">
+            <li><a href="#!/plotManagement" draggable="false">地块管理</a></li>
+            <li class="crumbs__curpage" id="navPlaceName"></li>
+        </ul>
+        <div class="dropdown-menu-mod">
+            <span class="dropdown-menu-mod__curr">地块一<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+            <ul class="dropdown-menu-mod__oths hide">
+                <li><a href="#!/plotManagement">地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+                <li><a>地块二</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="manage-area-main row">
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="mg-panel plot-video">
+                <div class="plot-video__title">
+                    <h3>地块视频</h3>
+                    <div class="dropdown-menu-mod">
+                        <span class="dropdown-menu-mod__curr" id="fistName"><span class="glyphicon glyphicon-chevron-down"
+                                aria-hidden="true"></span></span>
+                        <ul class="dropdown-menu-mod__oths hide" id="videos">
+                            <!-- <li><a href="#!/plotManagement">摄像头一</a></li>
+                            <li><a>摄像头一</a></li>
+                            <li><a>摄像头一</a></li>
+                            <li><a>摄像头一</a></li>
+                            <li><a>摄像头一</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="plot-video__body">
+                <!-- playsInline webkit-playsinline poster="#"-->
+                    <div class="plot-video__body_img" id="videoCon">
+                        <!-- <img src="../../img/bannerPic-1.jpg" /> -->
+                        <video id="monitorVedio" autoplay="autoplay">
+							<source id="nowVideo" type="application/x-mpegURL" />
+						</video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="mg-panel sensor-data tab-container">
+                <div class="mg-panel__titles tabs">
+                    <h3 class="tab" data-num="0">实时数据</h3>
+                    <h3 class="tab" data-num="1">地块信息</h3>
+                    <div class="bar"></div>
+                </div>
+                <div class="tab-page-container">
+                    <div class="row tab-page-0">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/土壤温度.png" draggable="false" alt="土壤温度" />
+                            <span>土壤温度</span>
+                            <span id="soilTemp"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/土壤湿度.png" draggable="false" alt="土壤湿度" />
+                            <span>土壤湿度</span>
+                            <span id="soilHum"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/空气温度.png" draggable="false" alt="空气温度" />
+                            <span>空气温度</span>
+                            <span id="airTemp"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/空气湿度.png" draggable="false" alt="空气湿度" />
+                            <span>空气湿度</span>
+                            <span id="airHum"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/光照强度.png" draggable="false" alt="光照强度" />
+                            <span>光照强度</span>
+                            <span id="radiation"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/风向.png" draggable="false" alt="风向" />
+                            <span>风向</span>
+                            <span id="winDirection"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/风速.png" draggable="false" alt="风速" />
+                            <span>风速</span>
+                            <span id="windSpeed"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/露点温度.png" draggable="false" alt="露点温度" />
+                            <span>露点温度</span>
+                            <span id="dew"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/降雨量.png" draggable="false" alt="降雨量" />
+                            <span>降雨量</span>
+                            <span id="rainFall"></span>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="../img/光辐射.png" draggable="false" alt="光辐射" />
+                            <span>光辐射</span>
+                            <span id="par"></span>
+                        </div>
+                    </div>
+                    <div class="plot-information tab-page-1 hide">
+                        <p id="crop"></p>
+                        <p id="square"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="mg-panel recent-data">
+                <h3>传感器近七日数据</h3>
+               	<div style="width:100%;height:400px;margin-top:15px;">
+               		<div id="airRecentData" style="height:400px;"></div>
+               	</div>
+                <!-- 图表事件响应错位 -->
+            </div>
+        </div>
+    </section>
+</body>
+<script src="../bower_components/echarts/dist/echarts.min.js" type="text/javascript"></script>
+<script src="../js/cp_sensorCharts.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script src="../js/ezuikit.js" type="text/javascript"></script>
+<script src="../js/mg-mod.js" type="text/javascript"></script>
+<script src="../js/cp_plotManagement-sub..js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/echarts.min.js"></script>
+<script type="text/javascript">
+	getVideos();
+	famerGetSensorData();
+	showLoraLineChart();
+	function showLoraLineChart() {
+		var airTemps;
+		var airHums;
+		var soilTemps;
+		var soilHums;
+		var radiations;
+		var pars;
+		var windSpeeds;
+		var windDirections;
+		var rainFalls;
+		var dates;
+		var href = window.location.href;
+		var placeId  = href.split("?placeId=")[1];
+		$.ajax({
+			type : "POST",//方法类型
+			async : true,
+			dataType : "json",//预期服务器返回的数据类型
+			url : getURL()+"querySensors",
+			data : {
+				placeId :placeId,
+				sensorId :-1,
+				limit :-1,
+				pageNumber :-1
+			},
+			success : function(result) {
+				var sensors = result.sensors;
+				var senStr = "";
+				for(var i=0;i<sensors.length;i++){
+					senStr += sensors[i].sensorId + ",";
+				}
+				$.ajax({
+					type : "POST",//方法类型
+					async : true,
+					dataType : "json",//预期服务器返回的数据类型
+					url : getURL()+"showEcharts",
+					data : {
+						sensorIds :senStr
+					},
+					success : function(result) {
+						airTemps = result.airTemps;
+						airHums = result.airHums;
+						soilTemps = result.soilTemps;
+						soilHums = result.soilHums;
+						radiations = result.radiations;
+						pars = result.pars;
+						windSpeeds = result.windSpeeds;
+						windDirections = result.windDirections;
+						dewTemps = result.dewTemps;
+						rainFalls = result.rainFalls;
+						dates = result.dates;
+						var loraChart = echarts.init(document.getElementById('airRecentData'));
+
+						var colors = [ '#0000cc', '#CC0099', '#006633', '#ff99cc', '#009999' ];
+
+						option = {
+							grid : {
+								/*top : 70,
+								bottom : 90,
+								right : '0%', */
+								left : '30%'
+							},
+							color : colors,
+							tooltip : {
+								trigger : 'axis',
+								axisPointer : {
+									type : 'cross'
+								}
+							},
+							// 空气、光照、土壤1、土壤2、土壤3
+							legend : {
+								data : [ '土壤湿度', '土壤温度',
+										'光照强度', '空气湿度', '空气温度' ],
+								selected : {
+									'二层土温' : false,
+									'二层土湿' : false,
+									'三层土温' : false,
+									'三层土湿' : false
+								},
+								x : 'left',
+								top : 0,
+								padding : [ 0, 40 ],
+								tooltip : {
+									show : true
+								}
+							},
+							dataZoom : [ { // 横坐标时间线
+								show : true,
+								realtime : true,
+								start : 70,
+								end : 100
+							}, {
+								type : 'inside',
+								realtime : true,
+								start : 70,
+								end : 100
+							} ],
+							xAxis : [ { // 横坐标
+								type : 'category',
+								axisTick : {
+									alignWithLabel : true
+								},
+								data : dates.map(function(str) {
+									return str.replace(' ', '\n')
+								})
+							} ],
+							yAxis : [ {
+								type : 'value',
+								name : '空气温度',
+								min : 'dataMin',
+								max : 'dataMax',
+								position : 'left',
+								axisLine : {
+									lineStyle : {
+										color : colors[0]
+									}
+								},
+								axisLabel : {
+									formatter : '{value}℃'
+								}
+							}, {
+								type : 'value',
+								name : '空气湿度',
+								min : 'dataMin',
+								max : 'dataMax',
+								position : 'left',
+								offset : 55,
+								axisLine : {
+									lineStyle : {
+										color : colors[1]
+									}
+								},
+								axisLabel : {
+									formatter : '{value}%'
+								}
+							}, { // 纵坐标
+								type : 'value',
+								name : '光照强度',
+								min : 'dataMin',
+								max : 'dataMax',
+								position : 'left',
+								offset : 110,
+								axisLine : {
+									lineStyle : {
+										color : colors[2]
+									}
+								},
+								axisLabel : {
+									formatter : '{value}Lux'
+								}
+							}, {
+								type : 'value',
+								name : '土壤温度',
+								min : 'dataMin',
+								max : 'dataMax',
+								position : 'left',
+								offset : 175,
+								axisLine : {
+									lineStyle : {
+										color : colors[3]
+									}
+								},
+								axisLabel : {
+									formatter : '{value}℃'
+								}
+							}, {
+								type : 'value',
+								name : '土壤湿度',
+								min : 'dataMin',
+								max : 'dataMax',
+								position : 'left',
+								offset : 230,
+								axisLine : {
+									lineStyle : {
+										color : colors[4]
+									}
+								},
+								axisLabel : {
+									formatter : '{value}%'
+								}
+							}],
+							series : [ {
+								name : '空气温度',
+								type : 'line',
+								yAxisIndex : 0,
+								data : airTemps
+							}, {
+								name : '空气湿度',
+								type : 'line',
+								yAxisIndex : 1,
+								data : airHums
+							}, {
+								name : '光照强度',
+								type : 'line',
+								yAxisIndex : 2,
+								data : radiations
+							}, {
+								name : '土壤温度',
+								type : 'line',
+								yAxisIndex : 3,
+								data : soilTemps
+							}, {
+								name : '土壤湿度',
+								type : 'line',
+								yAxisIndex : 4,
+								data : soilHums
+							} ]
+						};
+
+						loraChart.setOption(option);
+					},
+					error : function(e){
+						
+					}
+				});
+			},
+			error : function(e){
+				
+			}
+		});
+	}
+	
+</script>
+</html>

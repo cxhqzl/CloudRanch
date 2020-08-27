@@ -1,0 +1,226 @@
+@charset "UTF-8";
+/*设置滑动条的样式*/
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #36D1DC, #5B86E5);
+  /* 标准的语法 */
+  border-radius: 5px; }
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #36D1DC, #5B86E5);
+  /* 标准的语法 */
+  border-radius: 5px; }
+
+/*设置滑块样式*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 10px;
+  background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #36D1DC, #5B86E5);
+  /* 标准的语法 */
+  margin-top: -7.5px;
+  border-radius: 5px; }
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 10px;
+  background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #36D1DC, #5B86E5);
+  /* 标准的语法 */
+  margin-top: -7.5px;
+  border-radius: 5px; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  overflow: hidden;
+  position: relative;
+  left: 0; }
+
+.map {
+  width: 100%;
+  height: 100%;
+  z-index: 0; }
+  .amap-logo {
+    display: none !important; }
+  .amap-copyright {
+    display: none !important; }
+  .gm-china > div:nth-child(3),
+  .gm-china > div:nth-child(5),
+  .gm-china > div:nth-child(7) {
+    display: none !important; }
+  .tdt-control-copyright {
+    display: none !important; }
+
+header {
+  position: absolute;
+  top: 0;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  z-index: 2; }
+  header h2 {
+    text-shadow: 2px 2px 2px #000; }
+    header h2 > a {
+      color: #fff;
+      font-size: 14px;
+      display: inline-block;
+      margin-left: 10px;
+      cursor: pointer; }
+      header h2 > a:hover {
+        color: #5B86E5; }
+
+.dropdown-menu-mod {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5; }
+  .dropdown-menu-mod > .dropdown-menu-mod__curr {
+    background-color: #fff;
+    border-color: #fff; }
+    .dropdown-menu-mod > .dropdown-menu-mod__curr:hover {
+      border-color: #fff; }
+  .dropdown-menu-mod > .dropdown-menu-mod__oths {
+    top: 30px;
+    border-color: #fff;
+    border-top-color: #000; }
+    .dropdown-menu-mod > .dropdown-menu-mod__oths > li {
+      cursor: pointer; }
+
+.mg-plot-side {
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 50px;
+  top: 150px;
+  z-index: 7;
+  background-color: #fff;
+  font-weight: lighter;
+  display: none; }
+  .mg-plot-side > h3 {
+    padding: 10px 15px;
+    font-size: 17px;
+    color: #fff;
+    background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    /* 标准的语法 */
+    font-weight: lighter; }
+    .mg-plot-side > h3 > span {
+      color: #eee;
+      float: right;
+      cursor: pointer; }
+      .mg-plot-side > h3 > span:hover {
+        color: #fff;
+        transition: all 0.2 linear; }
+  .mg-plot-side .mg-plot-side__left {
+    width: 400px;
+    height: auto; }
+    .mg-plot-side .mg-plot-side__left > div {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      margin: 5px 0; }
+      .mg-plot-side .mg-plot-side__left > div > input {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        font-weight: lighter; }
+  .mg-plot-side .button-wrapper {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-around; }
+    .mg-plot-side .button-wrapper button {
+      width: 30%;
+      height: 35px;
+      background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+      /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+      /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+      /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #36D1DC, #5B86E5);
+      /* 标准的语法 */
+      color: #fff; }
+      .mg-plot-side .button-wrapper button:hover {
+        background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #36D1DC, #5B86E5);
+        /* 标准的语法 */
+        transition: all 0.2s linear; }
+
+.tips {
+  height: auto;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 7;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: transparent; }
+
+.buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #36D1DC, #5B86E5);
+  /* 标准的语法 */
+  box-shadow: 1px 1px 1px 0 #000;
+  color: #fff; }
+  .buttons > button {
+    height: 100%;
+    background-color: transparent;
+    padding: 5px 10px; }
+
+/*清除原有样式*/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 16vw; }
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; }
+
+/*# sourceMappingURL=cp_drawSite.css.map */

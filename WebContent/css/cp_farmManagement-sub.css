@@ -1,0 +1,81 @@
+.plotSetting input {
+  cursor: pointer; }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between; }
+  .wrapper .setting p {
+    margin-top: 10px; }
+  .wrapper .mapwrapper .map {
+    height: 400px;
+    z-index: 0; }
+    .tdt-control-copyright {
+      display: none !important; }
+
+.mg-title {
+  padding: 0; }
+
+.plot {
+  padding: 0; }
+
+.block-card {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .block-card > .c-3 {
+    width: 32.3%;
+    justify-content: space-between; }
+    .block-card > .c-3 > .content > span {
+      text-align: right; }
+    .block-card > .c-3 > .content > .value {
+      font-size: 15px; }
+  .block-card > .c-4 {
+    width: 24%;
+    justify-content: space-between; }
+    .block-card > .c-4 > .content > span {
+      text-align: right; }
+    .block-card > .c-4 > .content > .value {
+      font-size: 25px; }
+  .block-card > .c-1 {
+    width: 100%; }
+  .block-card > .wrapper {
+    flex-shrink: 0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-top: 15px; }
+    .block-card > .wrapper:hover {
+      border: 1px solid #006eff;
+      transition: all 0.2s ease-in-out; }
+      .block-card > .wrapper:hover .content > span {
+        color: #006eff;
+        transition: all 0.2s ease-in-out; }
+    .block-card > .wrapper > .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #006eff;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .block-card > .wrapper > .icon > .iconfont {
+        font-size: 25px;
+        color: #fff; }
+    .block-card > .wrapper > .content {
+      display: flex;
+      flex-direction: column;
+      color: #555; }
+      .block-card > .wrapper > .content > .key {
+        font-size: 15px;
+        font-weight: bolder; }
+      .block-card > .wrapper > .content > .value {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+
+/*# sourceMappingURL=cp_farmManagement-sub.css.map */

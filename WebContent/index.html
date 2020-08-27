@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>云农场</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
+    <link type="text/css" rel="stylesheet"
+        href="bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/cp_searchResult.css" />
+</head>
+
+<body>
+    <section class="map" id="bgMap">
+    </section>
+    <header class="header">
+        <ul class="header__nav">
+            <li>
+                <a href="javascript:void(0);">云农场智慧服务系统</a>
+            </li>
+        </ul>
+        <ul class="header__user-access hide" id="login_false">
+            <li id="register">
+                <i class="fa fa-pen-square"></i> 注册
+            </li>
+            <li id="login">
+                <i class="fa fa-user"></i> 登录
+            </li>
+        </ul>
+		<div class="header__img hide" id="login_true">
+            <img id="user_image"/>
+            <section class="userinfo-mod">
+                <div class="userinfo-mod__head">
+                    <a href="cloudranch/cp_personalSettings.html" title="个人中心" class="userinfo-mod__head_img"><img id="user_image_1"
+                            draggable="false" /></a>
+                    <div class="userinfo-mod__head_info">
+                        <span class="userinfo-mod__head_name" id="my_userName"></span>
+                        <span class="userinfo-mod__head_info" id="my_email"></span>
+                    </div>
+                </div>
+                <div class="userinfo-mod__footer">
+                    <span class="userinfo-mod__footer_signout" onclick="logout()">安全退出</span>
+                </div>
+            </section>
+        </div>
+    </header>
+    <section class="result">
+        <div class="search-wrapper">
+            <input type="search" placeholder="输入关键词搜索农场" id="keys"/>
+            <button onclick="submitSearch()"><span class="fa fa-search"></span>&nbsp;搜索</button>
+        </div>
+        <div class="search-result">
+            <div class="classification row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">种植基地</div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">三品一标</div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">规划计划</div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">本地商家</div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">休闲景点</div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">节庆活动</div>
+            </div>
+            <ul id="searchSites">
+                <!-- <li>
+                    <a>
+                        <div class="results__item_info">
+                            <p class="results__item_name">安徽农业大学</p>
+                            <p class="results__item_pro">种植：葡萄</p>
+                            <p class="results__item_address">安徽省合肥市长江西路130号氨基酸绝对是</p>
+                        </div>
+                        <div class="results__item_img">
+                            <img src="../img/bannerPic-2.jpg" draggable="false" />
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+            <p class="tips" id="results">
+               	
+            </p>
+        </div>
+    </section>
+	<footer class="footer">&copy;2018 智慧农业技术与装备安徽省重点实验室</footer>
+</body>
+<script src="js/data.js" type="text/javascript"></script>
+<script src="https://api.tianditu.gov.cn/api?v=4.0&tk=3f44451cff26b689a375c59edcdae223" type="text/javascript"></script>
+<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="bower_components/layer/dist/layer.js" type="text/javascript"></script>
+<script src="js/popWin.js" type="text/javascript"></script>
+<script src="js/region.js" type="text/javascript"></script>
+<script src="js/cp_searchResult.js" type="text/javascript"></script>
+<script src="js/cp_personalSettings.js" type="text/javascript"></script>
+<script src="js/jsUtils.js"></script>
+<script type="text/javascript">
+	setURL("");
+	showOtherSites();
+	$(document).keyup(function(event){  //监听回车键
+	    if(event.keyCode == 13){  
+	    	submitSearch();
+	    }
+	});
+	function showOtherSites(){
+		showSearch("");
+	}
+</script>
+</html>

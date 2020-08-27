@@ -1,0 +1,215 @@
+@charset "UTF-8";
+.header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  box-shadow: 0 2px 5px 0 #999;
+  background-color: #fff;
+  z-index: 2; }
+  .header > h3 {
+    margin: 0; }
+  .header > .search {
+    width: 50%;
+    height: 40px;
+    display: flex;
+    border: 1px solid #ff5500;
+    border-radius: 20px;
+    overflow: hidden; }
+    .header > .search > input {
+      width: 80%;
+      padding: 5px 15px; }
+    .header > .search > button {
+      width: 20%;
+      background: -webkit-linear-gradient(left, #ff8f00, #ff5200);
+      /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #ff8f00, #ff5200);
+      /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #ff8f00, #ff5200);
+      /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #ff8f00, #ff5200);
+      /* 标准的语法 */
+      color: #fff; }
+  .header > .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: bolder; }
+    .header > .user > div:not(:last-child) {
+      margin-right: 8px; }
+    .header > .user .attention {
+      color: #ff5500;
+      cursor: pointer; }
+
+.choices {
+  margin: 0;
+  margin-top: 70px; }
+  .choices > div {
+    padding: 10px 0;
+    font-size: 15px; }
+    .choices > div > input {
+      margin-left: 10px; }
+  .choices > div:nth-child(odd) {
+    text-align: right; }
+
+.items {
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 30px; }
+  .items > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; }
+  .items .item {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px 0 #999;
+    border-radius: 5px;
+    overflow: hidden; }
+    .items .item > img {
+      width: 100%;
+      height: 140px; }
+    .items .item > span {
+      padding: 5px 5px;
+      display: flex;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .items .item > .price {
+      font-size: 20px;
+      color: #ff5500;
+      font-weight: bolder; }
+    .items .item > .name {
+      font-size: 15px; }
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: orange;
+  color: #fff; }
+
+/*注册登录弹出框*/
+.popup_win {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200; }
+
+.popup_win > .wrapper {
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px 0 #333;
+  overflow: hidden; }
+
+.popup_win > .wrapper > header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  color: #7d7882;
+  border-bottom: 1px solid #cdcdcd; }
+
+.popup_win > .wrapper > header > .select {
+  font-size: 20px; }
+
+.popup_win > .wrapper > header > .select > span {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer; }
+
+.popup_win > .wrapper > header > .select > span.active {
+  color: orange; }
+
+.popup_win > .wrapper > header > .select > span:hover {
+  color: orange; }
+
+.popup_win > .wrapper > header > .delete {
+  font-size: 25px;
+  cursor: pointer; }
+
+.popup_win > .wrapper > header > .delete:hover {
+  color: orange; }
+
+.popup_win > .wrapper > .form {
+  margin-top: 10px;
+  position: relative; }
+
+.popup_win > .wrapper > .form > div {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.popup_win > .wrapper > .form > .sign_in_win > input {
+  border: 1px solid #aaa;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 40px;
+  color: #444; }
+
+/*选中样式*/
+.popup_win > .wrapper > .form > div > input:focus {
+  border: 1px solid orange; }
+
+.popup_win > .wrapper > .form > .sign_in_win > button {
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-top: 40px;
+  color: #fff;
+  background-color: orange;
+  transition: background-color 0.2s linear; }
+
+/*动画*/
+.popup_win > .wrapper > .form > div > button:hover {
+  background-color: darkorange;
+  transition: background-color 0.2s linear; }
+
+.popup_win > .wrapper > .form > .sign_up_win > input {
+  border: 1px solid #aaa;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  color: #444; }
+
+.popup_win > .wrapper > .form > .sign_up_win > button {
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-top: 15px;
+  color: #fff;
+  background-color: orange;
+  transition: background-color 0.2s linear; }
+
+.hidden {
+  display: none !important; }
+
+/*# sourceMappingURL=page.css.map */

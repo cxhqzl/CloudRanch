@@ -1,0 +1,96 @@
+.manage-area-title {
+  justify-content: space-between; }
+  .manage-area-title .crumbs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000; }
+    .manage-area-title .crumbs > li:not(:last-child)::after {
+      content: '/';
+      display: inline-block;
+      margin: 0 5px; }
+    .manage-area-title .crumbs .crumbs__curpage {
+      font-weight: 400;
+      font-size: 15px;
+      color: #888; }
+
+.plot-video__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.plot-video__body {
+  width: 100%;
+  height: 350px;
+  margin-top: 10px; }
+  .plot-video__body .plot-video__body_img {
+    width: 100%;
+    height: 100%; }
+    .plot-video__body .plot-video__body_img > img, .plot-video__body .plot-video__body_img video {
+      width: 100%;
+      height: 350px;
+      z-index: 6; }
+      .plot-video__body .plot-video__body_img > img source, .plot-video__body .plot-video__body_img video source {
+        width: 100%;
+        height: 100%; }
+
+.sensor-data {
+  position: relative; }
+  .sensor-data > h3 {
+    height: 30px;
+    line-height: 30px; }
+  .sensor-data .sa-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px; }
+  .sensor-data .sensor > .sensor-item {
+    height: 20px;
+    margin-top: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; }
+    .sensor-data .sensor > .sensor-item > div {
+      display: inline-block; }
+    .sensor-data .sensor > .sensor-item .sensor-item__namewrapper {
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center; }
+      .sensor-data .sensor > .sensor-item .sensor-item__namewrapper .sensor-item__name {
+        height: 100%;
+        display: inline-block;
+        max-width: 220px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .sensor-data .sensor > .sensor-item .sensor-item__namewrapper .glyphicon {
+        color: #ccc;
+        cursor: pointer; }
+        .sensor-data .sensor > .sensor-item .sensor-item__namewrapper .glyphicon:hover {
+          color: #006eff; }
+  .sensor-data .sensor > .add {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .sensor-data .sensor > .add > select,
+    .sensor-data .sensor > .add input {
+      display: flex;
+      height: 100% !important;
+      flex-grow: 1;
+      padding: 5px 0;
+      text-align: center; }
+      .sensor-data .sensor > .add > select:focus,
+      .sensor-data .sensor > .add input:focus {
+        border-bottom: 1px solid #000; }
+
+.plot-information p {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between; }
+
+/*# sourceMappingURL=cp_singlePlotManagement.css.map */

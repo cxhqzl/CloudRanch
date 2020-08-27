@@ -1,0 +1,43 @@
+#addPanorama .modal-body {
+  padding: 0; }
+  #addPanorama .modal-body .row {
+    margin: 0; }
+    #addPanorama .modal-body .row > div {
+      height: 35px;
+      padding: 0;
+      font-weight: bolder;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 0; }
+      #addPanorama .modal-body .row > div > input[type='text'] {
+        width: 100%;
+        height: 100%;
+        padding: 0 10px; }
+      #addPanorama .modal-body .row > div > form {
+        width: 100%;
+        height: 100%;
+        position: relative; }
+        #addPanorama .modal-body .row > div > form > label,
+        #addPanorama .modal-body .row > div > form input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          text-align: center; }
+        #addPanorama .modal-body .row > div > form > label {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          cursor: pointer; }
+        #addPanorama .modal-body .row > div > form > input[type='file'] {
+          width: 0;
+          height: 0;
+          opacity: 0; }
+        #addPanorama .modal-body .row > div > form > input[type="text"] {
+          width: 100%;
+          height: 100%;
+          padding: 0 10px; }
+  #addPanorama .modal-body .row:not(:last-child) {
+    border-bottom: 1px solid #e5e5e5; }
+
+/*# sourceMappingURL=cp_farmManagement-plot.css.map */

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="../img/icon.png" />
+    <link type="text/css" rel="stylesheet" href="../css/management.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <h2>农场管理</h2>
+        <div class="mg-search-mod">
+            <input type="text" placeholder="请输入关键词" />
+            <i class="fa fa-search"></i>
+        </div>
+        <a class="mg-button-mod" data-toggle="modal" data-target="#addMerchantModal">添加农场</a>
+    </header>
+    <!-- <span class="add-merchant" data-toggle="modal" data-target="#addMerchantModal">添加站点</span> -->
+    <section class="manage-area-main">
+        <div class="mg-panel col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td>编号</td>
+                        <td>商家</td>
+                        <td>省</td>
+                        <td>市</td>
+                        <td>县、区</td>
+                        <td>详细地址</td>
+                        <td>农场主</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody id="sites">
+                   <!--  <tr>
+                        <td>1</td>
+                        <td>合肥农场</td>
+                        <td>安徽省</td>
+                        <td>合肥市</td>
+                        <td>蜀山区</td>
+                        <td>测试测试测测试测试测测试测试测测试测试测测试测试测测测试测测试测试测测</td>
+                        <td>cds</td>
+                        <td class="table-operation">
+                            <i class="fa fa-pencil-alt" title="编辑" data-toggle="modal" data-target="#editModal"></i>
+                            <a href="#!/farmManagement-sub"><i class="fa fa-eye" title="详情"></i></a>
+                            <i class="fa fa-trash" title="删除" data-toggle="modal" data-target=".confirmModal"></i>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <nav aria-label="Page navigation" class="pagination-cp">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- 确认删除 -->
+    <div class="modal fade confirmModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    你要删除此条记录吗？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加用户modal窗口 -->
+    <div class="modal fade" id="addMerchantModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加站点</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="edit-form">
+                        <div class="edit-form__body" data-toggle="distpicker">
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">农场名称</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <input type="text" id="newSiteName" placeholder="请输入农场名称"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">所属人</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <!-- <input type="text" id="newSiteAccount"/> -->
+                                    <select id="newSiteAccount">
+                                    	<!-- <option value="123" >123(hhh)</option> -->
+                                    </select>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">农场面积</div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <input type="text" id="newSiteSquare" placeholder="面积(单位：m²)"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">省</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <select data-province="---- 选择省 ----" id="newProvince"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">市</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <select data-city="---- 选择市 ----" id="newCity"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">县、区</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <select data-district="---- 选择区 ----" id="newCounty"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">详细地址</div>
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                    <input type="text" placeholder="方便精确定位" maxlength="25" id="newLocation"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="submitAddSite()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../bower_components/distpicker/dist/distpicker.min.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script type="text/javascript">
+showSites();
+showSelectAccounts();
+</script>
+</html>

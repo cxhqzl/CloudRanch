@@ -1,0 +1,87 @@
+.saverecord {
+  margin-right: 10px; }
+
+.mg-panel > h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; }
+
+.additem-top {
+  margin-bottom: 12px;
+  border: 1px dashed #000; }
+  .additem-top > .wrapper {
+    padding: 0;
+    margin: 0; }
+    .additem-top > .wrapper > div {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .additem-top > .wrapper > div > span {
+        width: 35%;
+        font-weight: bolder;
+        text-align: center; }
+      .additem-top > .wrapper > div > input,
+      .additem-top > .wrapper > div form,
+      .additem-top > .wrapper > div select {
+        text-align: center;
+        width: 55%; }
+    .additem-top > .wrapper > div:not(:nth-child(4n+4)) {
+      border-right: 1px solid #aaa; }
+  .additem-top > .row:not(:first-child) {
+    margin: 10px 0;
+    padding: 0; }
+    .additem-top > .row:not(:first-child) > div:first-child {
+      font-weight: bolder; }
+    .additem-top > .row:not(:first-child) > div {
+      text-align: center; }
+  .additem-top .address {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+
+.add input, .add select {
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+.add .add__picture > form {
+  position: relative;
+  width: 100%;
+  height: 20px; }
+  .add .add__picture > form img {
+    width: 32px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 0; }
+  .add .add__picture > form input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute; }
+  .add .add__picture > form label {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    cursor: pointer; }
+
+td {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.picture img {
+  width: 32px;
+  height: 20px; }
+
+/*# sourceMappingURL=cp_informationentry-sub.css.map */

@@ -1,0 +1,203 @@
+h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700; }
+
+.row {
+  margin: 0; }
+
+a {
+  text-decoration: none !important; }
+
+ul {
+  margin: 0; }
+
+td {
+  text-align: center; }
+
+.manage-area-title {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  color: #000;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none; }
+  .manage-area-title h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700; }
+
+.manage-area-main {
+  margin-top: 70px;
+  padding: 0 20px; }
+
+.mg-panel {
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 20px; }
+  .mg-panel p {
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; }
+    .mg-panel p > span {
+      display: inline-block;
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      color: #888; }
+      .mg-panel p > span > img {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px; }
+
+.dropdown-menu-mod {
+  width: auto;
+  font-size: 13px;
+  position: relative; }
+  .dropdown-menu-mod .dropdown-menu-mod__curr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #888; }
+    .dropdown-menu-mod .dropdown-menu-mod__curr:hover {
+      border: 1px solid #000; }
+    .dropdown-menu-mod .dropdown-menu-mod__curr > span {
+      display: inline-block;
+      margin-left: 5px;
+      transition: all 0.2s ease-in-out; }
+  .dropdown-menu-mod .dropdown-menu-mod__oths {
+    width: 100%;
+    height: auto;
+    max-height: 114px;
+    /* width */
+    /* Track */
+    /* Handle */
+    /* Handle on hover */
+    overflow-y: auto;
+    position: absolute;
+    top: 31px;
+    border: 1px solid #000;
+    background-color: #fff;
+    z-index: 7; }
+    .dropdown-menu-mod .dropdown-menu-mod__oths::-webkit-scrollbar {
+      width: 4px;
+      height: 4px; }
+    .dropdown-menu-mod .dropdown-menu-mod__oths::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0);
+      border-radius: 8px; }
+    .dropdown-menu-mod .dropdown-menu-mod__oths::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px; }
+    .dropdown-menu-mod .dropdown-menu-mod__oths::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.8); }
+    .dropdown-menu-mod .dropdown-menu-mod__oths > li {
+      width: 100%;
+      padding: 5px;
+      text-align: center;
+      cursor: pointer; }
+      .dropdown-menu-mod .dropdown-menu-mod__oths > li:hover {
+        background-color: #eee; }
+
+.mg-button-mod {
+  display: inline-block;
+  width: auto;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid #888;
+  color: #888;
+  text-decoration: none;
+  padding: 5px; }
+  .mg-button-mod:hover {
+    border: 1px solid #000;
+    color: #000; }
+
+.mg-pop-mod {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .mg-pop-mod .mg-pop-mod__body {
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 3px 0 black; }
+    .mg-pop-mod .mg-pop-mod__body h4 {
+      margin-bottom: 20px; }
+    .mg-pop-mod .mg-pop-mod__body > div {
+      margin: 10px 0; }
+      .mg-pop-mod .mg-pop-mod__body > div > h6 {
+        font-size: 16px; }
+    .mg-pop-mod .mg-pop-mod__body button {
+      padding: 5px 10px;
+      float: right;
+      margin-left: 10px; }
+    .mg-pop-mod .mg-pop-mod__body .draft {
+      float: left;
+      margin: 0; }
+    .mg-pop-mod .mg-pop-mod__body input {
+      width: 100%;
+      height: auto;
+      border: 1px solid #999;
+      padding: 5px 10px;
+      font-size: 15px; }
+      .mg-pop-mod .mg-pop-mod__body input:focus {
+        border-color: #006eff; }
+    .mg-pop-mod .mg-pop-mod__body .mg-pop-mod__body_yes {
+      background-color: #006eff;
+      color: #fff; }
+
+.mg-search-mod {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 100px; }
+  .mg-search-mod > input {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #888;
+    border-right: none;
+    transition: all 0.2s ease-in-out; }
+    .mg-search-mod > input:focus {
+      width: 180px;
+      border: 1px solid #333333;
+      border-right: none;
+      transition: all 0.2s ease-in-out; }
+  .mg-search-mod .fa-search {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    color: #fff;
+    cursor: pointer; }
+
+.mg-title {
+  margin-bottom: 20px; }
+
+/*# sourceMappingURL=cp_farmerManagement.css.map */

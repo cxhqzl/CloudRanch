@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>云农场</title>
+        <!-- bower:css -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
+		<link type="text/css" rel="stylesheet" href="bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css" />
+		<link type="text/css" rel="stylesheet" href="css/reset.css" />
+		<link type="text/css" rel="stylesheet" href="css/cp_login.css" />
+		<!-- endbower -->
+	</head>
+
+	<body>
+        <header>
+            <div>云农场智慧服务系统</div>
+        </header>
+        <section>
+            <div class="form" ng-controller="loginCtr">
+                <h3 class="form__title">登    录</h3>
+                <div class="form__topTip" ng-bind="tip"></div>
+                <div class="form__body">
+                    <div class="form__body_input">
+                        <input type="email" ng-model="email" placeholder="支持邮箱登录" id="account"/>
+                        <p color="red" ng-bind="email"></p>
+                        <i ng-click="clear()" ng-show="clearicon" class="fa fa-plus"></i>
+                    </div>
+                    <div class="form__body_input">
+                        <input type="password" ng-model="psd" placeholder="密码" id="password"/>
+                    </div>
+                    <div class="form__body_input form__body_ver">
+                        <input type="text" ng-model="verification" placeholder="请输入验证码" maxlength="4" id="code"/>
+                        <div class="form__body_input_img"><img id="codeImage" onclick="getImageCode()"/></div>
+                    </div>
+                    <div class="form__body_input">
+                        <input type="button" value="登录" onclick="submitLogin()"/>
+                    </div>
+                </div>
+                <div class="form__footer">忘记密码？</div>
+            </div>
+        </section>
+        <footer>&copy;2018 智慧农业技术与装备安徽省重点实验室</footer>
+	</body>
+	
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jsUtils.js"></script>
+    <script src="js/cp_login.js"></script>
+    <!-- endbower -->
+	<script type="text/javascript">
+		$(function(){
+			getImageCode();
+		});
+	</script>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagement.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_farmerManagementSetting.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cp_plotManagement.css" />
+</head>
+
+<body>
+    <header class="manage-area-title">
+        <h2>动物区域</h2>
+        <a class="mg-button-mod" href="../cloudranch/cp_drawPlaceTianAnimal.html">圈舍划分</a>
+    </header>
+    <section class="manage-area-main"> 
+        <div class="row" id="places">
+            <!-- <p class="no-plot" style="text-align:center;">您还没有划分地块，请先划分地块！</p> -->
+            <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 plotSetting">
+                <a class="mg-panel" href="#!/plotManagement-sub" draggable="false">
+                    <h3>地块一</h3>
+                    <span class="glyphicon glyphicon-pencil">编辑</span>
+                    <span class="glyphicon glyphicon-saved hide">保存</span>
+                    <span class="glyphicon glyphicon-remove">取消</span>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">地块名称</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="地块一" readonly />
+                    </p>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">地块面积</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child square-meter-input" type="text"
+                            value="113m²" readonly />
+                    </p>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">种植作物</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="葡萄" readonly />
+                    </p>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">认领用户</span>
+                        <span class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child">cds</span>
+                    </p>
+                    <div  class="delete"><span class="glyphicon glyphicon-trash">删除</span></div>
+                </a>
+            </div> -->
+        </div>
+    </section>
+</body>
+<script src="../js/mg-mod.js" type="text/javascript"></script>
+<script src="../js/jsUtils.js" type="text/javascript"></script>
+<script type="text/javascript">
+showPlacesAnimal();
+function showPlacesAnimal(){
+	$.ajax({
+		type : "POST",//方法类型
+		async : true,
+		dataType : "json",//预期服务器返回的数据类型
+		url : getURL()+"queryPlaces",
+		data : {
+			siteId : sessionStorage.getItem("siteId"),
+			placeId : -1,
+			limit : -1,
+			pageNumber : -1,
+			type : 'animal'
+		},
+		success : function(result) {
+			var places = result.places;
+			if(places.length <= 0){
+				document.getElementById("places").innerHTML = `<p class="no-plot" style="text-align:center;">您还没有划分圈舍，请先划分圈舍！</p>`;
+				return;
+			}
+			var str = "";
+			for(var i=0;i<places.length;i++){
+				str += `<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 plotSetting">
+                <a id="${places[i].placeId}" class="mg-panel" href="#!/plotManagement-sub?placeId=${places[i].placeId}" draggable="false">
+                    <h3>${places[i].placeName}</h3>
+                    <span class="glyphicon glyphicon-pencil">编辑</span>
+                    <span class="glyphicon glyphicon-saved hide">保存</span>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">地块名称</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="${places[i].placeName}" readonly />
+                    </p>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">地块面积</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child square-meter-input" type="text"
+                            value="${places[i].square}" readonly />
+                    </p>
+                    <p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">种植作物</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="${places[i].crop}" readonly />
+                    </p>`;
+				if(places[i].account == "1"){
+					str += `<p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">认领用户</span>
+                        <input class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child" type="text" value="未被认领" readonly />
+                    </p>`;
+				}else{
+					var str1 = places[i].userName+"("+places[i].account+")";
+					str += `<p class="row">
+                        <span class="col-xs-3 col-sm-3 col-md-3 col-lg-3 row-child">认领用户</span>
+                         <span class="col-xs-9 col-sm-9 col-md-9 col-lg-9 row-child">${str1}</span>
+                    </p>`;
+				}
+                str += `
+                <div class="delete" onclick="delPlace('${places[i].placeId}')"><span class="glyphicon glyphicon-trash">删除</span></div>
+                `;
+                str += `</a>
+            </div>`;
+			}
+			document.getElementById("places").innerHTML = str;
+		},
+		error : function(e){
+			
+		}
+	});
+}
+</script>
+</html>

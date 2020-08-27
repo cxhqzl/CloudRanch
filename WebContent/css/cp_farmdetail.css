@@ -1,0 +1,477 @@
+@charset "UTF-8";
+.userinfo-mod {
+  width: auto;
+  height: auto;
+  min-width: 300px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #4c4c4c;
+  box-shadow: 0 1px 5px 0 #111;
+  padding: 20px;
+  z-index: 5;
+  display: none; }
+  .userinfo-mod .userinfo-mod__head {
+    display: flex;
+    align-items: center; }
+    .userinfo-mod .userinfo-mod__head .userinfo-mod__head_img {
+      margin-right: 20px; }
+      .userinfo-mod .userinfo-mod__head .userinfo-mod__head_img > img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%; }
+    .userinfo-mod .userinfo-mod__head .userinfo-mod__head_info {
+      display: flex;
+      flex-direction: column; }
+      .userinfo-mod .userinfo-mod__head .userinfo-mod__head_info .userinfo-mod__head_name {
+        font-size: 18px;
+        font-weight: lighter !important;
+        color: #fff;
+        white-space: nowrap; }
+      .userinfo-mod .userinfo-mod__head .userinfo-mod__head_info .userinfo-mod__head_info {
+        white-space: nowrap;
+        font-size: 13px;
+        color: #ddd; }
+  .userinfo-mod .userinfo-mod__footer {
+    margin-top: 10px; }
+    .userinfo-mod .userinfo-mod__footer .userinfo-mod__footer_signout {
+      font-size: 13px;
+      color: #999;
+      cursor: pointer; }
+      .userinfo-mod .userinfo-mod__footer .userinfo-mod__footer_signout:hover {
+        color: #fff; }
+
+.userinfo-mod {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: none; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  overflow: hidden;
+  position: relative;
+  left: 0; }
+
+.header {
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0 20px;
+  color: #fff;
+  box-shadow: 0 1px 5px 0 #111;
+  z-index: 3;
+  font-weight: lighter;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none; }
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin: 0; }
+    .header__nav > li {
+      margin-right: 10px; }
+    .header__nav a {
+      color: #fff; }
+      .header__nav a:hover, .header__nav a:visited, .header__nav a:active {
+        text-decoration: none; }
+  .header__user-access {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    font-size: 15px; }
+    .header__user-access > li {
+      margin: 0 10px;
+      cursor: pointer;
+      transition: all 0.2s linear; }
+      .header__user-access > li:hover {
+        color: green;
+        transition: all 0.2s linear; }
+      .header__user-access > li > i {
+        margin-right: 5px; }
+  .header__img {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .header__img > img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer; }
+    .header__img > img:hover {
+      border: 2px solid #fff; }
+  .header > ul {
+    margin-bottom: 0; }
+
+.map {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  z-index: 0;
+  position: relative; }
+  .amap-logo {
+    display: none !important; }
+  .amap-copyright {
+    display: none !important; }
+  .gm-china > div:nth-child(3),
+  .gm-china > div:nth-child(5),
+  .gm-china > div:nth-child(7) {
+    display: none !important; }
+  .tdt-control-copyright {
+    display: none !important; }
+
+.farm-detail {
+  width: 350px;
+  position: absolute;
+  left: 3%;
+  top: 70px;
+  font-weight: lighter;
+  background-color: #fff; }
+  .farm-detail .farm-info__title {
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    /* 标准的语法 */
+    color: #fff;
+    margin: 0;
+    padding: 10px 0;
+    position: relative; }
+    .farm-detail .farm-info__title > .slideUp {
+      transform: rotateZ(180deg); }
+    .farm-detail .farm-info__title > .glyphicon {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      right: 10px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.2s linear; }
+      .farm-detail .farm-info__title > .glyphicon::before {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px; }
+      .farm-detail .farm-info__title > .glyphicon:hover {
+        background-color: #42b8df;
+        transition: all 0.1s ease-in; }
+  .farm-detail .farm-info__wrapper {
+    height: 500px;
+    display: none; }
+  .farm-detail .farm-info__body_nav {
+    display: flex;
+    margin: 0;
+    padding: 5px 0;
+    position: relative; }
+    .farm-detail .farm-info__body_nav > li {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      font-size: 15px;
+      cursor: pointer; }
+    .farm-detail .farm-info__body_nav > .active-bar {
+      width: 25%;
+      height: 2px;
+      background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+      /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+      /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+      /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #36D1DC, #5B86E5);
+      /* 标准的语法 */
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out; }
+  .farm-detail .farm-info__body_nav_pages {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 5px; }
+    .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_2 {
+      padding: 15px 0; }
+      .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_2 td {
+        text-align: center; }
+    .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_1 {
+      padding: 15px; }
+      .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_1 > .introduction {
+        text-indent: 2em; }
+    .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_3 {
+      padding: 15px; }
+      .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_3 > .row {
+        width: 100%;
+        margin: 0; }
+        .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_3 > .row > a {
+          padding: 0;
+          margin-bottom: 15px; }
+          .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_3 > .row > a > img {
+            width: 95%;
+            height: 63px; }
+        .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_3 > .row > a:nth-child(3n+2) {
+          text-align: center; }
+        .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_3 > .row > a:nth-child(3n+3) {
+          text-align: right; }
+    .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_4 {
+      text-align: center;
+      padding: 15px; }
+      .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_4 > span {
+        color: green;
+        cursor: pointer; }
+        .farm-detail .farm-info__body_nav_pages > .farm-info__body_nav_page_4 > span:hover {
+          text-decoration: underline; }
+
+.claimblock {
+  width: 350px;
+  position: absolute;
+  right: 3%;
+  top: 70px;
+  font-weight: lighter;
+  background-color: #fff;
+  display: none; }
+  .claimblock .claimblock__title {
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    /* 标准的语法 */
+    color: #fff;
+    margin: 0;
+    padding: 10px 0; }
+  .claimblock .row {
+    margin: 0; }
+    .claimblock .row > div {
+      padding: 0;
+      text-align: center;
+      padding: 5px 0; }
+  .claimblock .source {
+    padding-bottom: 10px; }
+    .claimblock .source .source__title {
+      text-align: center;
+      font-weight: bolder;
+      padding: 5px 0; }
+    .claimblock .source .source__items {
+      max-height: 366px;
+      overflow: auto;
+      /* width */
+      /* Track */
+      /* Handle */
+      /* Handle on hover */ }
+      .claimblock .source .source__items::-webkit-scrollbar {
+        width: 4px;
+        height: 4px; }
+      .claimblock .source .source__items::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+        border-radius: 8px; }
+      .claimblock .source .source__items::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 8px; }
+      .claimblock .source .source__items::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.8); }
+      .claimblock .source .source__items .source__item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 5px 10px; }
+        .claimblock .source .source__items .source__item > div, .claimblock .source .source__items .source__item ul {
+          text-align: left;
+          flex-shrink: 0;
+          box-sizing: border-box; }
+        .claimblock .source .source__items .source__item > div:first-child {
+          width: 100px;
+          padding-left: 10px; }
+        .claimblock .source .source__items .source__item ul {
+          width: 210px; }
+          .claimblock .source .source__items .source__item ul > li {
+            list-style-type: disc;
+            margin-bottom: 5px; }
+          .claimblock .source .source__items .source__item ul img {
+            width: 210px;
+            height: 100%;
+            margin-top: 10px; }
+  .claimblock button {
+    width: 50%;
+    height: 35px;
+    background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    /* 标准的语法 */
+    color: #fff;
+    display: block;
+    margin: 10px auto; }
+    .claimblock button:hover {
+      background: -webkit-linear-gradient(left, #36D1DC, #5B86E5);
+      /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #36D1DC, #5B86E5);
+      /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #36D1DC, #5B86E5);
+      /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #36D1DC, #5B86E5);
+      /* 标准的语法 */ }
+  .claimblock .tip {
+    margin: 10px auto;
+    color: #28dadc;
+    text-align: center; }
+
+.panorama {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  box-shadow: 0 -1px 5px 0 #555;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  transition: all 0.3s ease-in-out; }
+  .parnorama-hide {
+    bottom: -105px; }
+  .panorama > .icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(top, #5B86E5, #36D1DC);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom, #5B86E5, #36D1DC);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom, #5B86E5, #36D1DC);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom, #5B86E5, #36D1DC);
+    /* 标准的语法 */
+    box-shadow: 0 2px 3px 0 #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none; }
+    .icon-up {
+      transform: scale(0.8); }
+    .panorama > .icon > img {
+      width: 28px;
+      height: 21px; }
+  .panorama .fa {
+    width: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #5B86E5;
+    transition: all 0.2s ease-in; }
+  .panorama .fa-angle-double-left {
+    left: 0; }
+    .panorama .fa-angle-double-left:hover {
+      background: -webkit-linear-gradient(left, #5B86E5, transparent);
+      /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #5B86E5, transparent);
+      /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #5B86E5, transparent);
+      /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #5B86E5, transparent);
+      /* 标准的语法 */ }
+  .panorama .fa-angle-double-right {
+    right: 0; }
+    .panorama .fa-angle-double-right:hover {
+      background: -webkit-linear-gradient(left, transparent, #5B86E5);
+      /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, transparent, #5B86E5);
+      /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, transparent, #5B86E5);
+      /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, transparent, #5B86E5);
+      /* 标准的语法 */ }
+  .panorama > .pics {
+    height: 100%;
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* width */
+    /* Track */
+    /* Handle */
+    /* Handle on hover */ }
+    .panorama > .pics::-webkit-scrollbar {
+      width: 4px;
+      height: 4px; }
+    .panorama > .pics::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0);
+      border-radius: 8px; }
+    .panorama > .pics::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px; }
+    .panorama > .pics::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.8); }
+    .panorama > .pics > div {
+      width: 100px;
+      height: 80px;
+      margin: 10px 0;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center; }
+      .panorama > .pics > div > a > img {
+        width: 100px;
+        height: 60px; }
+      .panorama > .pics > div > span {
+        display: block;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center; }
+    .panorama > .pics > div:not(:last-child) {
+      margin-right: 10px; }
+
+/*# sourceMappingURL=cp_farmdetail.css.map */

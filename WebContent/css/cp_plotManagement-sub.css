@@ -1,0 +1,48 @@
+.mg-panel__titles {
+  display: flex;
+  position: relative;
+  padding-bottom: 5px; }
+  .mg-panel__titles > h3:not(:first-child) {
+    margin-left: 10px; }
+  .mg-panel__titles > h3 {
+    cursor: pointer; }
+  .mg-panel__titles > .bar {
+    width: 72px;
+    height: 2px;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background-color: #333333;
+    border-radius: 2px;
+    transition: all 0.2s linear; }
+
+.sensor-data {
+  height: 430px; }
+  .sensor-data .row {
+    margin-top: 10px;
+    margin-left: -20px;
+    margin-right: -20px; }
+    .sensor-data .row > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding: 0; }
+      .sensor-data .row > div > img {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px; }
+      .sensor-data .row > div > span:nth-child(2) {
+        font-size: 15px; }
+      .sensor-data .row > div > span:nth-child(3) {
+        font-size: 14px; }
+
+.plot-information {
+  height: 366px;
+  display: flex;
+  flex-direction: column; }
+  .plot-information > p {
+    font-size: 16px; }
+
+/*# sourceMappingURL=cp_plotManagement-sub.css.map */
